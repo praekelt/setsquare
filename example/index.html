@@ -5,20 +5,23 @@
     </head>
     <body>
 
-        <div class="iframe ui-widget-content">
-            <div class="iframe-status">
-                <b id="pixels">1000</b> px
-                <br/>
-                <b id="rems">48</b> em
-            </div>
+        <div class="setsquare">
+            <ul class="setsquare__units">
+                <li class="setsquare__unit">
+                    <b id="pixels">1000</b> px
+                </li>
+                <li class="setsquare__unit">
+                    <b id="rems">48</b> em
+                </li>
+            </ul>
 
-            <iframe frameBorder="0" width="100%" height="100%" src="./example-pattern.html">
+            <iframe class="setsquare__viewport" frameBorder="0" width="100%" height="100%" src="./example-pattern.html">
             </iframe>
 
-            <div class="handle"></div>
+            <div class="setsquare__handle"></div>
         </div>
 
-          <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
         <script type="text/javascript" src="../dist/js/setsquare.js"></script>
     </body>
 </html>

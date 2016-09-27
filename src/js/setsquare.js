@@ -1,23 +1,23 @@
 // States for the iframe resize handle.
 var drag_active = false;
-var drag_element = '';
+var drag_element;
 
 // Resizeable iframe
-$(".handle").on("mousedown", function(evt){
+$('.setsquare__handle').on('mousedown', function(evt){
     drag_element = $(this).parent();
     drag_active = true;
-    $(this).addClass("active");
+    $(this).addClass('setsquare__handle_active');
     // Disable pointer events in iframes while user resizes
-    drag_element.find("iframe").css("pointer-events", "none");
+    drag_element.find('.setsquare__viewport').css('pointer-events', 'none');
 });
 
-$(document).on("mouseup", function(evt){
+$(document).on('mouseup', function(evt){
     drag_active = false;
-    $("iframe").css("pointer-events", "auto");
-    $(".handle").removeClass("active");
+    $('.setsquare__viewport').css('pointer-events', 'auto');
+    $('.setsquare__handle').removeClass('setsquare__handle_active');
 });
 
-$(document).on("mousemove", function(evt){
+$(document).on('mousemove', function(evt){
     if (drag_active){
         var offset = element_position(drag_element.get(0));
         var mouseX = evt.pageX - offset.x - 5 ;
@@ -28,32 +28,37 @@ $(document).on("mousemove", function(evt){
 
 // Updates the px/em tag on iframes
 function update_iframe_status(elem, width){
-    $(elem).find("#pixels").html(width);
-    $(elem).find("#rems").html(px_to_em(width));
+    $(elem).find('#pixels').html(width);
+    $(elem).find('#rems').html(px_to_em(width));
 }
 
 // Calculates an elements offset for relative mouse positioning
 function element_position(e) {
-  var x = 0, y = 0;
-  var inner = true ;
-  do {
-      x += e.offsetLeft;
-      y += e.offsetTop;
-      var style = getComputedStyle(e,null) ;
-      var borderTop = getNumericStyleProperty(style,"border-top-width") ;
-      var borderLeft = getNumericStyleProperty(style,"border-left-width") ;
-      y += borderTop ;
-      x += borderLeft ;
-      if (inner){
-        var paddingTop = getNumericStyleProperty(style,"padding-top") ;
-        var paddingLeft = getNumericStyleProperty(style,"padding-left") ;
-        y += paddingTop ;
-        x += paddingLeft ;
-      }
-      inner = false ;
-  } while (e = e.offsetParent);
+    var x = 0, y = 0;
+    var inner = true ;
 
-  return { x: x, y: y };
+    do {
+        x += e.offsetLeft;
+        y += e.offsetTop;
+
+        var style = getComputedStyle(e, null);
+        var borderTop = getNumericStyleProperty(style, 'border-top-width');
+        var borderLeft = getNumericStyleProperty(style, 'border-left-width');
+
+        y += borderTop;
+        x += borderLeft;
+
+        if (inner) {
+            var paddingTop = getNumericStyleProperty(style, 'padding-top');
+            var paddingLeft = getNumericStyleProperty(style, 'padding-left');
+            y += paddingTop;
+            x += paddingLeft;
+        }
+
+        inner = false;
+    } while (e = e.offsetParent);
+
+    return { x: x, y: y };
 }
 
 // Returns a numeric style property for use in offset calculations
@@ -63,8 +68,6 @@ function getNumericStyleProperty(style, prop){
 
 // Converts pixels to ems
 function px_to_em(input) {
-    //var emSize = parseFloat($("body").width());
-    //return Math.round((input / emSize) * 100) / 10;
     return Math.round((input/16) * 10)/10;
 }
 
