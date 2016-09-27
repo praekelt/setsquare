@@ -1,0 +1,122 @@
+.iframe-opt {
+    height: rem(20);
+    cursor: pointer;
+    display: block;
+    float: left;
+    margin-bottom: rem(10);
+    width: rem(20);
+
+    svg {
+        path {
+            fill: $color-grey-dark;
+            transition: fill $anim-base-duration $anim-base-easing;
+        }
+    }
+
+    &.active,
+    &:hover {
+        svg {
+            path {
+                fill: $color-primary-1;
+            }
+        }
+    }
+}
+
+.iframe-refresh {
+    @extend .iframe-opt;
+    margin-right:rem(10);
+}
+
+.iframe-opt-menu {
+    color: $color-grey-dark;
+    width: 100%;
+    height: rem(20);
+    display: none;
+}
+
+.iframe-opt-menu.active {
+    display: block;
+}
+
+.iframe-opt-menu ul {
+    list-style-type: none;
+    display: block;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.iframe-opt-menu li {
+    font-size: rem(12);
+    display: inline-block;
+    border-right: 1px solid $color-grey-lighter;
+    padding: unpack(0 rem(20));
+    cursor: pointer;
+}
+
+.iframe-opt-menu li.active {
+    color: $color-primary-1;
+}
+
+.iframe {
+    width: 100%;
+    position: relative;
+    border: 1px solid $color-grey-lighter;
+    overflow: hidden;
+    height: rem(500);
+    background-color: $color-white;
+}
+
+.iframe-status {
+    font-size: rem(12);
+    height: auto;
+    color: $color-grey-dark;
+    display: inline-block;
+    background-color: rgba($color-grey-lighter, 0.7);
+    padding: unpack(rem(5) rem(10));
+    width: rem(90);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.iframe-status #pixels,
+.iframe #rems {
+    width: rem(30);
+    display: inline-block;
+}
+
+.iframe .handle {
+    width: rem(10);
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: col-resize;
+    background-color: $color-grey-lighter;
+    transition: background-color $anim-base-duration $anim-base-easing;
+
+    svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        transition: fill $anim-base-duration $anim-base-easing;
+
+        * {
+            fill: $color-grey-dark;
+        }
+    }
+
+    &.active,
+    &:hover {
+        background-color: $color-primary-1;
+
+        svg {
+            * {
+                fill: $color-white;
+            }
+        }
+    }
+}
