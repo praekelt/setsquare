@@ -1,5 +1,5 @@
 {
-  "name": "pattern-frame",
+  "name": "setsquare",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/praekelt/pattern-frame/issues"
   },
-  "homepage": "https://github.com/praekelt/pattern-frame#readme"
+  "homepage": "https://github.com/praekelt/pattern-frame#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2"
+  },
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
 }
