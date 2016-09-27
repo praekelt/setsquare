@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/praekelt/pattern-frame.git"
+    "url": "git+https://github.com/praekelt/setsquare.git"
   },
   "author": "Chris Sergienko <chris@praekeltconsulting.com> (http://www.praekelt.com)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/praekelt/pattern-frame/issues"
+    "url": "https://github.com/praekelt/setsquare/issues"
   },
-  "homepage": "https://github.com/praekelt/pattern-frame#readme",
+  "homepage": "https://github.com/praekelt/setsquare#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-sass": "^2.3.2"
