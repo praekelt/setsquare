@@ -55,3 +55,20 @@ function element_position(e) {
 
   return { x: x, y: y };
 }
+
+// Returns a numeric style property for use in offset calculations
+function getNumericStyleProperty(style, prop){
+  return parseInt(style.getPropertyValue(prop),10);
+}
+
+// Converts pixels to ems
+function px_to_em(input) {
+    //var emSize = parseFloat($("body").width());
+    //return Math.round((input / emSize) * 100) / 10;
+    return Math.round((input/16) * 10)/10;
+}
+
+// Converts ems to px
+function em_to_px(input) {
+    return Math.round((input*16) * 10)/10;
+}
